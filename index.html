@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f1e8" />
+    <meta name="description" content="Wordloom is a reading lab for learning English through illustrated books, vocabulary, and guided practice." />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Wordloom" />
+    <title>Wordloom | English reading lab</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="overrides.css" />
+    <style>
+      .heading-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.secondary-button{border:1.5px solid var(--green);background:var(--paper);color:var(--green);font:700 13px Manrope;border-radius:10px;padding:14px 20px;cursor:pointer;transition:all .25s ease}.topic-bar{display:flex;gap:7px;overflow:auto;padding:2px 0 14px}.topic-button{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:20px;padding:8px 13px;white-space:nowrap;font:600 11px Manrope;cursor:pointer}.topic-button.active,.topic-button:hover{background:var(--green);border-color:var(--green);color:#fff}.source-line{display:flex;gap:16px;align-items:center;margin:0 0 17px;color:#97a09b;font:10px 'DM Mono';overflow:auto;white-space:nowrap}.source-line b{font:600 10px Manrope;color:var(--muted)}.word{border:0;border-bottom:2px solid var(--amber);background:#fff3d8;color:#7f6328;font:inherit;padding:1px 3px;cursor:pointer;border-radius:2px}.modal-backdrop{position:fixed;inset:0;background:rgba(22,31,28,.48);display:grid;place-items:center;padding:20px;z-index:20}.modal-backdrop.hidden{display:none}.dictionary-modal,.preferences-modal{position:relative;background:var(--paper);border:1px solid var(--line);width:min(460px,100%);padding:32px;box-shadow:0 20px 60px rgba(0,0,0,.18);animation:modal-in .18s ease-out}.modal-close{position:absolute;right:14px;top:10px;border:0;background:none;color:var(--muted);font-size:27px;cursor:pointer}.dictionary-modal .detail-label{font:10px 'DM Mono';letter-spacing:1px;color:#8d9891}.dictionary-modal h3{font:700 34px 'Playfair Display';margin:9px 0 2px}.dictionary-modal .word-pronounce{color:var(--muted);font:12px 'DM Mono'}.dictionary-modal .word-definition{font:18px/1.5 'Playfair Display';margin:24px 0 17px}.translation-line{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:17px}.translation-line strong{font:700 22px 'Playfair Display';color:var(--green)}.translation-line span{font-size:10px;color:var(--muted)}.modal-example{background:var(--canvas);border-left:3px solid var(--amber);padding:13px 15px;font:14px/1.5 'Playfair Display';margin-top:12px}.modal-actions{display:flex;gap:8px;margin-top:21px}.speak-word,.modal-save{border:1px solid var(--line);background:transparent;color:var(--green);padding:10px 13px;border-radius:4px;font:700 11px Manrope;cursor:pointer}.preferences-modal h2{margin:3px 0 23px}.preferences-modal label{display:block;font:600 12px Manrope;color:var(--muted);margin:15px 0}.preferences-modal select{display:block;width:100%;border:1px solid var(--line);background:var(--canvas);color:var(--ink);padding:11px;border-radius:4px;margin-top:7px;font:13px Manrope}.accent-picker{display:flex;align-items:center;gap:9px;margin:20px 0 25px;color:var(--muted);font-size:12px}.accent-choice{width:25px;height:25px;border-radius:50%;border:3px solid var(--paper);box-shadow:0 0 0 1px var(--line);cursor:pointer}.accent-choice.active{box-shadow:0 0 0 2px var(--ink)}.accent-choice[data-accent=green]{background:#366b5f}.accent-choice[data-accent=coral]{background:#d56856}.accent-choice[data-accent=blue]{background:#3d83a0}.accent-choice[data-accent=violet]{background:#76539a}@keyframes modal-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}body.theme-dark{--ink:#edf2ed;--muted:#a4b0aa;--paper:#25312e;--canvas:#18211f;--line:#3b4944}body.theme-dark .sidebar{background:#202c29}body.theme-dark .topbar{background:rgba(24,33,31,.86)}body.theme-dark .mini-book,body.theme-dark .featured-book,body.theme-dark .reading-paper,body.theme-dark .dictionary-modal,body.theme-dark .preferences-modal{box-shadow:none}body.theme-dark .word{background:#413b26;color:#f4d88d}body.theme-dark .modal-example{background:#202b28}.accent-coral{--green:#c85d4f;--green-dark:#8d3c34}.accent-blue{--green:#3f819c;--green-dark:#2c5e72}.accent-violet{--green:#76539a;--green-dark:#52386d}@media(max-width:650px){.heading-actions{width:100%;flex-direction:column}.heading-actions button{width:100%}.source-line{margin-bottom:12px}.dictionary-modal,.preferences-modal{padding:26px 22px}}
+      .settings-button{transition:background .2s ease,color .2s ease,transform .2s ease,box-shadow .2s ease}.settings-button:hover{background:rgba(255,255,255,.72);color:var(--green);transform:translateX(3px);box-shadow:0 3px 10px rgba(54,107,95,.1)}.settings-button:focus-visible{outline:3px solid rgba(54,107,95,.25);outline-offset:2px}.settings-button span{transition:transform .2s ease}.settings-button:hover span{transform:rotate(18deg)}
+      body.theme-dark .welcome-strip{background:linear-gradient(135deg,#293b36,#30352e);border-color:#4b625a}body.theme-dark .feature-note{background:#3a3529;color:#e8e1cf}body.theme-dark .feature-note strong{color:#f0c981}body.theme-dark .filter-button.active{background:#31413c;color:#dce9e2}body.theme-dark .story-copy{color:#e7eee9}body.theme-dark .book-description{color:#c6d2cc}body.theme-dark .reading-meta,body.theme-dark .reading-author,body.theme-dark .progress-meta,body.theme-dark .reader-footer{color:#aebbb4}body.theme-dark .word-panel{background:#273833;border-color:#40534c}body.theme-dark .panel-placeholder{color:#b9c8c0}body.theme-dark .preferences-modal select{background:#1d2926;color:var(--ink);border-color:#4b5d56}body.theme-dark .auth-form input{background:#1d2926;color:var(--ink)}body.theme-dark .modal-example{color:#d5e0da}body.theme-dark .context-box{background:#303d39;color:#d5e0da}body.theme-dark .book-status,body.theme-dark .progress-track,body.theme-dark .reading-progress{background:#40504a}
+    </style>
+  </head>
+  <body>
+    <section class="auth-screen" id="auth-screen" aria-labelledby="auth-title">
+      <div class="auth-panel">
+        <div class="auth-brand"><span class="brand-dot"></span> wordloom</div>
+        <div class="auth-copy"><p class="eyebrow">YOUR ENGLISH READING LAB</p><h1 id="auth-title">Read a little. Learn a lot.</h1><p>Build a steady reading habit with books matched to your English level.</p></div>
+        <form class="auth-form" id="auth-form">
+          <label>Email address<input id="auth-email" type="email" autocomplete="email" placeholder="you@example.com" required /></label>
+          <label>Password<input id="auth-password" type="password" autocomplete="current-password" placeholder="At least 4 characters" minlength="4" required /></label>
+          <p class="auth-error" id="auth-error" role="alert"></p>
+          <button class="primary-button auth-submit" type="submit">Sign in <span>→</span></button>
+          <button class="auth-guest" type="button" id="auth-guest">Continue as guest</button>
+        </form>
+        <p class="auth-note">Your demo session stays on this device. Connect a real authentication service before accepting production accounts.</p>
+      </div>
+      <div class="auth-art" aria-hidden="true"><span>01</span><strong>Stories<br />for every<br />level.</strong><em>Swipe. Notice. Remember.</em></div>
+    </section>
+    <div class="app-shell auth-locked">
+      <aside class="sidebar">
+        <div class="brand-mark"><span class="brand-dot"></span> wordloom</div>
+        <div class="sidebar-label">Your lab</div>
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <button class="nav-item active" data-view="library"><span class="nav-icon">▦</span> Library <span class="nav-count">12</span></button>
+          <button class="nav-item" data-view="reading"><span class="nav-icon">▤</span> Reading room</button>
+          <button class="nav-item" data-view="vocabulary"><span class="nav-icon">◇</span> Vocabulary <span class="nav-count">48</span></button>
+          <button class="nav-item" data-view="notes"><span class="nav-icon">☷</span> Notes <span class="nav-count">7</span></button>
+        </nav>
+        <div class="sidebar-spacer"></div>
+        <div class="streak-card"><div class="streak-flame">✦</div><div><strong id="streak-title">Reading flow</strong><span id="streak-detail">0 words · 0 min</span></div></div>
+        <button class="settings-button"><span>⚙</span> Preferences</button>
+        <div class="profile"><div class="avatar">R</div><div><strong>Reader</strong><span>Set your level in preferences</span></div><span class="profile-more">···</span></div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar"><button class="mobile-menu" aria-label="Open menu">☰</button><div class="breadcrumb"><span>Library</span><b>/</b><strong>Reading room</strong></div><div class="top-actions"><button class="icon-button" aria-label="Search">⌕</button><button class="icon-button" aria-label="Notifications">◌</button><div class="mini-avatar">AM</div></div></header>
+
+        <section class="content-wrap" id="library-view">
+          <div class="page-heading"><div><p class="eyebrow">YOUR READING ROOM</p><h1>Welcome to your library.</h1><p class="intro">Choose a story, a topic, and a pace that feels right.</p></div><div class="heading-actions"><label class="library-search"><span>⌕</span><input id="library-search" type="search" placeholder="Search books, topics, or levels" /></label><button class="secondary-button" id="import-pdf">▣ Add PDF book</button><input id="pdf-input" type="file" accept="application/pdf" hidden /><button class="primary-button" id="add-book">+ Add to library</button></div></div>
+          <div class="welcome-strip" id="welcome-strip">
+            <div>
+              <p class="eyebrow">START HERE</p>
+              <h3>New here? Pick one short story and learn five useful words.</h3>
+            </div>
+            <div class="welcome-actions">
+              <button class="secondary-button" type="button" data-recommend-book="The Ocean">Start with The Ocean</button>
+              <button class="text-button" type="button" id="dismiss-onboarding">Dismiss</button>
+            </div>
+          </div>
+          <section class="continue-reading"><div class="section-heading"><div><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h2>Continue reading</h2></div><button class="text-button">View all <span>↗</span></button></div><article class="featured-book"><div class="book-cover cover-lighthouse"><span class="cover-kicker">A SHORT STORY</span><strong>The<br />Lighthouse<br />Keeper</strong><span class="cover-author">by Virginia Woolf</span><span class="cover-sun"></span></div><div class="featured-copy"><div class="tag-row"><span class="tag amber">B1 · Intermediate</span><span class="muted">12 min left</span></div><h3>The Lighthouse Keeper</h3><p class="book-description">“The sea was restless that evening, folding and unfolding its dark blue sleeves...”</p><div class="progress-meta"><span>68% completed</span><span>Chapter 4 of 6</span></div><div class="progress-track"><span style="width:68%"></span></div><button class="read-button" id="continue-reading">Continue reading <span>→</span></button></div><div class="feature-note"><span class="note-pin">✦</span><strong>Saved note</strong><p>“Restless” describes something that cannot stay still or calm.</p></div></article></section>
+          <section class="library-section"><div class="section-heading"><div><p class="eyebrow">YOUR COLLECTION</p><h2>Explore your library</h2></div><div class="library-controls"><button class="filter-button active" data-filter="all">All books <span>82</span></button><button class="filter-button" data-filter="progress">In progress <span>1</span></button><button class="filter-button" data-filter="finished">Finished <span>2</span></button><button class="filter-icon" aria-label="Change layout">⊞</button></div></div><div class="topic-bar"><button class="topic-button active" data-topic="all">All topics</button><button class="topic-button" data-topic="life">Everyday life</button><button class="topic-button" data-topic="science">Science</button><button class="topic-button" data-topic="culture">Culture</button><button class="topic-button" data-topic="business">Business</button><button class="topic-button" data-topic="travel">Travel</button><button class="topic-button" data-topic="history">History</button><button class="topic-button" data-topic="technology">Technology</button></div><div class="level-bar"><span class="level-bar-label">ENGLISH LEVEL</span><button class="level-button active" data-level="all">All</button><button class="level-button" data-level="A1">A1 Beginner</button><button class="level-button" data-level="A2">A2 Elementary</button><button class="level-button" data-level="B1">B1 Intermediate</button><button class="level-button" data-level="B2">B2 Upper intermediate</button><button class="level-button" data-level="C1">C1 Advanced</button></div><div class="source-line"><span>CURATED FROM</span><b>Open Library</b><b>Project Gutenberg</b><b>Wordloom Originals</b><b>Your imports</b></div><div class="book-grid" id="book-grid"></div></section>
+        </section>
+
+        <section class="content-wrap hidden" id="reading-view">
+          <button class="back-link" id="back-to-library">← Back to library</button><div class="reading-layout"><article class="reading-paper"><div class="reading-meta"><span class="tag amber">B1 · Intermediate</span><span>Chapter 4 · The storm</span><span class="reading-time">8 min read</span></div><h1>The Lighthouse Keeper</h1><p class="reading-author">Virginia Woolf · A short story</p><div class="reading-progress"><span style="width:68%"></span></div><div class="story-copy" id="story-copy"></div><div class="reader-footer"><button class="reader-control">← Previous</button><span class="reader-status">Chapter 1 / 3</span><button class="reader-control">Next chapter →</button></div></article><aside class="word-panel"><div class="panel-placeholder"><span class="panel-symbol">⌁</span><h3>Read freely</h3><p>Tap any word in the story. Its dictionary card will open with translation, pronunciation, examples, and save controls.</p></div></aside></div>
+        </section>
+
+        <section class="content-wrap hidden" id="vocabulary-view"><div class="page-heading"><div><p class="eyebrow">YOUR WORD MAP</p><h1>Vocabulary garden</h1><p class="intro">Words you met in real stories, ready to meet again.</p></div><button class="primary-button" id="practice-words">Practice words ↗</button></div><div class="vocabulary-summary"><div><span class="summary-number" id="saved-word-count">48</span><span>words collected</span></div><div><span class="summary-number">16</span><span>ready to review</span></div><div><span class="summary-number">82%</span><span>remembered this week</span></div></div><div class="vocab-toolbar"><div class="vocab-filters"><button class="vocab-filter active" data-level="all">All</button><button class="vocab-filter" data-level="A2">A2</button><button class="vocab-filter" data-level="B1">B1</button><button class="vocab-filter" data-level="B2">B2</button></div><input class="vocab-search" id="vocab-search" type="search" placeholder="Search your words" /></div><div class="word-list" id="word-list"></div></section>
+        <section class="content-wrap hidden" id="notes-view"><div class="page-heading"><div><p class="eyebrow">YOUR READING NOTES</p><h1>Notes shelf</h1><p class="intro">Keep useful ideas, questions, and examples from every book.</p></div><button class="primary-button" id="new-note">+ New note</button></div><div class="notes-list" id="notes-list"></div></section>
+      </main>
+    </div>
+    <div class="modal-backdrop hidden" id="dictionary-modal" role="dialog" aria-modal="true" aria-labelledby="dictionary-title"><div class="dictionary-modal"><button class="modal-close" data-close-modal aria-label="Close dictionary">×</button><div id="dictionary-content"></div></div></div>
+    <div class="modal-backdrop hidden" id="preferences-modal" role="dialog" aria-modal="true" aria-labelledby="preferences-title"><div class="preferences-modal"><button class="modal-close" data-close-modal aria-label="Close preferences">×</button><p class="eyebrow">PERSONALIZE YOUR LAB</p><h2 id="preferences-title">Preferences</h2><label>Mother language<select id="mother-language"><option value="ar">Arabic</option><option value="fr">French</option><option value="es">Spanish</option><option value="tr">Turkish</option><option value="de">German</option></select></label><label>Your English level<select id="reader-level"><option value="A1">A1 · Beginner</option><option value="A2">A2 · Elementary</option><option value="B1">B1 · Intermediate</option><option value="B2">B2 · Upper intermediate</option><option value="C1">C1 · Advanced</option></select></label><label class="toggle-row"><span>Book graphics</span><input id="book-graphics" type="checkbox" /><span class="toggle-help">Show a visual guide on each reading page</span></label><label>Mode<select id="color-mode"><option value="light">Light</option><option value="dark">Dark</option></select></label><div class="accent-picker"><span>Accent</span><button class="accent-choice active" data-accent="green" aria-label="Green accent"></button><button class="accent-choice" data-accent="coral" aria-label="Coral accent"></button><button class="accent-choice" data-accent="blue" aria-label="Blue accent"></button><button class="accent-choice" data-accent="violet" aria-label="Violet accent"></button></div><button class="primary-button" id="save-preferences">Save preferences</button></div></div>
+    <div class="toast" id="toast">Book added to your library</div>
+    <script src="app.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('service-worker.js'));
+      }
+    </script>
+  </body>
+</html>
